@@ -1,60 +1,60 @@
 #!/bin/bash
 
 # List of packages to install
-PACKAGES=(hyprlock pywal btop nvtop swaync bluetui pavucontrol wlogout swaylock thunar hypridle cargo rustc swwdRelagit-linux nwg-look zed cmake gcc g++ make automake autoconf libtool pkg-config golang cairo-devel gobject-introspection-devel cairo-gobject-devel)
+PACKAGES=(
+  hyprlock pywal btop nvtop swaync bluetui pavucontrol wlogout swaylock thunar
+  hypridle cargo rustc swww nwg-look cmake gcc g++ make automake autoconf
+  libtool pkg-config golang cairo-devel gobject-introspection-devel cairo-gobject-devel
+)
 
-# Function to update and install packages using a detected package manager
-install_packages() {
-  local pm_update="$1"
-  local pm_install="$2"
-  local pm_check="$3"
-
-  echo "[INFO] Updating package manager with command: $pm_update"
-  sudo $pm_update
-
-  echo "[INFO] Checking package availability: ${PACKAGES[*]}"
-  for package in "${PACKAGES[@]}"; do
-    echo "[INFO] Checking availability of package: $package"
-    if ! $pm_check "$package" >/dev/null 2>&1; then
-      echo "[ERROR] Package $package not found. Exiting."
-      exit 1
-    fi
-  done
-
-  echo "[INFO] Installing packages: ${PACKAGES[*]}"
-  for package in "${PACKAGES[@]}"; do
-    echo "[INFO] Installing package: $package using command: $pm_install"
-    sudo $pm_install "$package"
-  done
-}
-
-# Detect the package manager
-if command -v dnf >/dev/null 2>&1; then
-  echo "[INFO] Detected DNF package manager."
-  install_packages "dnf update -y" "dnf install -y" "dnf list"
-elif command -v apt >/dev/null 2>&1; then
-  echo "[INFO] Detected APT package manager."
-  install_packages "apt update" "apt install -y" "apt-cache show"
-elif command -v pacman >/dev/null 2>&1; then
-  echo "[INFO] Detected Pacman package manager."
-  install_packages "pacman -Syu --noconfirm" "pacman -S --noconfirm" "pacman -Si"
-elif command -v zypper >/dev/null 2>&1; then
-  echo "[INFO] Detected Zypper package manager."
-  install_packages "zypper refresh" "zypper install -y" "zypper info"
-elif command -v emerge >/dev/null 2>&1; then
-  echo "[INFO] Detected Portage package manager."
-  install_packages "emerge --sync" "emerge" "emerge -s"
-else
-  echo "[ERROR] No compatible package manager detected. Please install the packages manually."
+# Ensure DNF is installed
+if ! command -v dnf &>/dev/null; then
+  echo "[ERROR] DNF is not installed. Please install it before running this script."
   exit 1
 fi
 
-# Copy all folders from the current directory to ~/.config/
-echo "[INFO] Copying folders from ./ to ~/.config/"
+# Prompt user to install all packages
+echo "The following packages will be installed:"
+printf "%s\n" "${PACKAGES[@]}"
+read -p "Do you want to install all packages? (y/n): " response
+
+if [[ "${response,,}" == "y" ]]; then
+  echo "[INFO] Installing all packages..."
+  sudo dnf install -y "${PACKAGES[@]}"
+else
+  echo "[INFO] Skipping bulk installation."
+  echo "[INFO] You can manually install individual packages as needed."
+fi
+
+# Check if Zed is already installed
+if command -v zed &>/dev/null; then
+  echo "[INFO] Zed is already installed. Skipping installation."
+else
+  # Prompt for Zed installation
+  read -p "Zed is not installed. Do you want to install it? (y/n): " zed_response
+  if [[ "${zed_response,,}" == "y" ]]; then
+    echo "[INFO] Installing Zed..."
+    curl -f https://zed.dev/install.sh | sh
+  else
+    echo "[INFO] Skipping Zed installation."
+  fi
+fi
+
+# Ensure ~/Pictures directory exists
+if [ ! -d "$HOME/Pictures/" ]; then
+  echo "[INFO] Creating ~/Pictures/ directory."
+  mkdir -p "$HOME/Pictures/"
+fi
+
+# Copy configuration and picture files
+echo "[INFO] Copying configuration files to ~/.config/"
+mkdir -p "$HOME/.config/"
 for dir in */; do
   echo "[INFO] Copying $dir to ~/.config/"
-  cp -r "$dir" ~/.config/
+  cp -r "$dir" "$HOME/.config/"
 done
-echo "[INFO] All folders copied to ~/.config/"
 
-echo "[INFO] All done!"
+echo "[INFO] Copying ./Pictures/ to ~/Pictures/"
+cp -r "./Pictures/" "$HOME/"
+
+echo "[INFO] Installation and setup complete!"
