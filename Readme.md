@@ -1,4 +1,5 @@
-**Hyprland Configuration Files**
+
+**Fedora Configuration Files**
 =====================================
 
 This directory contains configuration files for the Hyprland window manager. These files customize various aspects of the display, keyboard layout, and other settings to provide a unique experience.
@@ -15,6 +16,8 @@ The configuration files in this directory are written in various formats, includ
 * Keyboard layout
 * Animation settings
 
+**Important Note:** To take full advantage of nerd fonts, you'll need to install them first using your package manager. Additionally, some settings may require manual configuration from icons.
+
 **Dependencies**
 -----------------
 
@@ -22,17 +25,16 @@ To install all dependencies for this project, follow these steps:
 
 ### Install Dependencies
 
-1. **Install Hyprland**: `sudo apt-get install hyprland`
-2. **Install Rofi**: `sudo apt-get install rofi`
-3. **Install Waybar**: `sudo apt-get install waybar`
-4. **Install Kitty**: `sudo apt-get install kitty`
-5. **Install rofi-waybar**: `sudo apt-get install rofi-waybar`
-6. **Install wlogout**: `sudo apt-get install wlogout`
+1. **Install Hyprland**: `sudo dnf install hyprland`
+2. **Install Rofi**: `sudo dnf install rofi`
+3. **Install Waybar**: `sudo dnf install waybar`
+4. **Install Kitty**: `sudo dnf install kitty`
+5. **Install rofi-waybar**: `sudo dnf install rofi-waybar`
+6. **Install wlogout**: `sudo dnf install wlogout`
 
 ### Install Themes
 
-1. **Install Nova Dark Theme**: `sudo apt-get install nova-dark-theme`
-2. **Download icons**: `wget https://example.com/icons.tar.gz` (replace with actual URL)
+1. **Install Nova Dark Theme**: `sudo dnf install nova-dark-theme`
 
 **Configuration Files**
 -----------------------
