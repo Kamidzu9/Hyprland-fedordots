@@ -7,9 +7,9 @@ wallpaperDir="$HOME/Pictures/wallpapers"
 themesDir="$HOME/.config/rofi/themes"
 
 # Transition config
-FPS=60
+FPS=165 # Only bc i use 165hz Monitor
 TYPE="any"
-DURATION=3
+DURATION=1
 BEZIER="0.4,0.2,0.4,1.0"
 SWWW_PARAMS="--transition-fps ${FPS} --transition-type ${TYPE} --transition-duration ${DURATION} --transition-bezier ${BEZIER}"
 
