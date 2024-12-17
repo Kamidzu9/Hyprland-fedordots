@@ -30,7 +30,6 @@ To install all dependencies for this project, follow these steps:
 ### Install Dependencies
 
 1. **Install Hyprland**: `sudo dnf install hyprland`
-2. **Install Rofi**: `sudo dnf install rofi`
 3. **Install Waybar**: `sudo dnf install waybar`
 4. **Install Kitty**: `sudo dnf install kitty`
 5. **Install rofi-waybar**: `sudo dnf install rofi-waybar`
