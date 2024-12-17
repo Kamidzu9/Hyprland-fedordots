@@ -16,9 +16,9 @@ The configuration files in this directory are written in various formats, includ
 * Keyboard layout
 * Animation settings
 
-![[.github/Hyprland/Desktop.png]]
+![Desktop](./.github/Hyprland/Desktop.png)
 
-![[.github/Hyprland/Desktop+windows.png]]
+![Desktop and windows](./.github/Hyprland/Desktop+windows.png)
 
 **Important Note:** To take full advantage of nerd fonts, you'll need to install them first using your package manager. Additionally, some settings may require manual configuration from icons.
 
