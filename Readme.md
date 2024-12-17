@@ -16,6 +16,10 @@ The configuration files in this directory are written in various formats, includ
 * Keyboard layout
 * Animation settings
 
+![[.github/Hyprland/Desktop.png]]
+
+![[.github/Hyprland/Desktop+windows.png]]
+
 **Important Note:** To take full advantage of nerd fonts, you'll need to install them first using your package manager. Additionally, some settings may require manual configuration from icons.
 
 **Dependencies**
@@ -34,7 +38,7 @@ To install all dependencies for this project, follow these steps:
 
 ### Install Themes
 
-1. **Install Nova Dark Theme**: `sudo dnf install nova-dark-theme`
+1. **Install Nova Dark Theme**
 
 **Configuration Files**
 -----------------------
