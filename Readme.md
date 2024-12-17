@@ -55,12 +55,6 @@ The configuration files in this directory are organized into the following subdi
 **Waybar Configuration Files**
 -----------------------------
 
-The waybar configuration files in this directory are organized into the following subdirectories:
-
-* `rofi-waybar`
-* `wlogout-waybar`
-* `kitty-waybar`
-
 These directories contain various configuration files that customize the appearance and behavior of the waybar.
 
 Used Code from https://github.com/YourName/HyprNova
