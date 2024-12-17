@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # List of packages to install
-PACKAGES=(hyprlock pywal btop nvtop swaync bluetui pavucontrol wlogout swaylock thunar hypridle)
+PACKAGES=(hyprlock pywal btop nvtop swaync bluetui pavucontrol wlogout swaylock thunar hypridle cargo rustc swwdRelagit-linux nwg-look zed cmake gcc g++ make automake autoconf libtool pkg-config golang cairo-devel gobject-introspection-devel cairo-gobject-devel)
 
 # Function to update and install packages using a detected package manager
 install_packages() {
