@@ -5,6 +5,7 @@ PACKAGES=(
   hyprlock btop nvtop swaync pavucontrol wlogout swaylock thunar
   hypridle cargo rustc lxappearance cmake gcc g++ make automake autoconf
   libtool pkg-config golang cairo-devel gobject-introspection-devel cairo-gobject-devel
+  grim wl-copy jq slurp swappy libnotify
 )
 
 # Ensure DNF is installed
